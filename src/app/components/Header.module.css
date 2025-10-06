@@ -1,0 +1,18 @@
+.DesktopMenu {
+  display: flex;
+  gap: 1rem;
+}
+.MobileAndTablerMenu {
+  display: none;
+}
+
+/* Nettbrett og mobil */
+@media (min-width: 300px) and (max-width: 600px) {
+  .DesktopMenu {
+    display: none;
+  }
+
+  .MobileAndTablerMenu {
+    display: block;
+  }
+}
