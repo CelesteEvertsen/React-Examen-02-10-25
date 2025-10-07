@@ -1,4 +1,4 @@
-
+import ClimateSection from "./components/HomePage/ClimateSection";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -15,7 +15,7 @@ export default function Home() {
         </section>
       </div>
       <div className={styles.ClimaSection}>
-       <p>Her skal  klimaseksjonene være</p>
+       <ClimateSection/>
         </div>
     </main>
     

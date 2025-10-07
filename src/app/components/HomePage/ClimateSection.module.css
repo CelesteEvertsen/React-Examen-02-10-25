@@ -1,0 +1,54 @@
+.climaBox {
+  margin: 2rem 0rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  line-height: 1.5;
+}
+.content {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.text {
+  margin: 1rem 1rem;
+}
+
+.linkBtn {
+  color: white;
+  padding: 0.5rem 2rem;
+  width: 50%;
+  font-size: 1rem;
+  background-color: black;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+}
+.linkBtn:hover {
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+}
+
+/* mobile */
+@media screen and (max-width: 599) {
+  .climaBox {
+    margin: 2rem 0rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    line-height: 1.5;
+  }
+}
+/* nettbrett */
+@media (min-width: 600px) and (max-width: 1024px) {
+  .climaBox {
+    margin: 2rem 0rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    line-height: 1.5;
+  }
+}
