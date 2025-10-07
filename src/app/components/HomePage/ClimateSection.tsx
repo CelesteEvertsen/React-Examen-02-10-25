@@ -4,15 +4,16 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function ClimateSection() {
-  const climateArray = ClimateSectionArray.map((action) => {
+  const climateArray = ClimateSectionArray.map(({title, image, text, theme, id}) => {
+    
     return (
-      <section className={style.content} key={action.id}>
-        <h2>{action.title}</h2>
-        <Image src={action.image} alt={action.text} width={400} height={250} />
+      <section className={style.content} key={id}>
+        <h2>{title}</h2>
+        <Image src={image} alt={text} width={400} height={250} />
         <div className={style.text}>
-          <p>{action.text}</p>
+          <p>{text}</p>
         </div>
-        <Link className={style.linkBtn} href={`/climate/${action.theme}`}>
+        <Link className={style.linkBtn} href={`climatetheme/${theme}`}>
           Ler mer
         </Link>
       </section>
