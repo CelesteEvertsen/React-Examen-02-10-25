@@ -5,20 +5,27 @@
   text-align: center;
   line-height: 1.5;
 }
+
 .contentBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 1rem auto;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   width: 90vw;
   min-height: 700px;
 }
-.contentBox > h1 {
+.contentBox h1 {
+  margin-top: 2rem;
   font-size: 3rem;
 }
-.contentBox > section {
-  margin: 0 2rem;
-}
 .img {
-  margin: 1rem auto;
+  margin: 2rem auto;
+}
+.text {
+  width: 600px;
+  margin-bottom: 2rem;
 }
 .backHome {
   color: white;

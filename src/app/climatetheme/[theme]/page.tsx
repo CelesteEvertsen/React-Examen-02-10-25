@@ -30,7 +30,7 @@ export default function ClimateTheme({ params }: Props) {
           width={600}
           height={350}
         />
-        <section>
+        <section className={style.text}>
           <p>{content.section1}</p>
           <p>{content.section2}</p>
           <p>{content.section3}</p>

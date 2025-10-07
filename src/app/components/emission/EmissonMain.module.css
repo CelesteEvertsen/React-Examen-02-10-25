@@ -1,0 +1,44 @@
+.navigationBtn{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+}
+.btnContainer{
+     display:flex;
+     width: 100vw;
+     justify-content: space-evenly;
+     border-bottom: 1px solid black;
+}
+.btnContainer > button{
+    color: white;
+    padding: 0.5rem 2rem;
+    font-size: 1rem;
+    background-color: black;
+    border-radius: 20px;
+    margin: 1rem 0;
+
+}
+.btnContainer > button:hover{
+    color:black;
+    background-color: white;
+    border: 1px solid black;
+
+}
+/* mobile */
+@media screen and (max-width: 599) {
+
+ .navigationBtn > h1{
+   padding: 0 2.5rem;
+ }
+}
+
+/* nettbrett */
+@media (min-width: 600px) and (max-width: 1024px) {
+ .navigationBtn > h1{
+   padding: 0 2.5rem;
+ }
+
+  }

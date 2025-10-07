@@ -1,0 +1,35 @@
+.main{
+    margin: 1rem auto;
+    text-align: center;
+}
+
+.headline{
+    margin: 2rem auto;
+    padding: 1rem;
+    width: 40%;
+    }
+.table{
+    margin: 0 auto;
+    width: 90vw;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    box-shadow:  rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.table thead th{
+    border-bottom: 2px solid black;
+    padding: 1rem;
+    background-color: white;
+    text-align: center;
+
+}
+.table tbody td{
+    border: 1px solid #ddd;
+    padding: 1rem;
+
+}
+.table tbody tr{
+    background-color: white;
+}
+.table tbody tr:nth-child(odd){
+    background-color: #f8dbdb;
+}
