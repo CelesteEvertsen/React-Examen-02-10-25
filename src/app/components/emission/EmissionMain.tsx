@@ -1,9 +1,9 @@
 "use client";
 import style from "./EmissonMain.module.css";
 import { HighEmission, LowEmission } from "@/app/data/EmissionArray";
-
 import { useState } from "react";
 import TableEmission from "./TableEmission";
+import ChartEmission from "./ChartEmission";
 
 export default function EmissionMain() {
   const [showinfo, setShowinfo] = useState<"table" | "chart">("table");
@@ -28,7 +28,10 @@ export default function EmissionMain() {
             LowEmission={LowEmission}
           />
         ) : (
-          <p>chart</p>
+          <ChartEmission
+          HighEmission={HighEmission}
+          LowEmission={LowEmission}
+          />
         )}
       </section>
     </>

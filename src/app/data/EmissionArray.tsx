@@ -1,4 +1,3 @@
-
 type HCo2 = {
   country: string;
   emission: number;
