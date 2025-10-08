@@ -1,0 +1,78 @@
+.main {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+.containerQuestions {
+  text-align: center;
+  margin: auto auto;
+  padding: 1rem 2rem;
+  height: 90vh;
+  border-radius: 2rem;
+  background-color: antiquewhite;
+  box-shadow: rgba(100, 100, 111, 0.61) 0px 7px 29px 0px;
+}
+.headline{
+  font-size: 4rem;
+  margin: 1.5rem auto;
+}
+.questions {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.calculatorBtn {
+  margin: 0 auto;
+  color: white;
+  padding: 0.5rem 2rem;
+  font-size: 1rem;
+  background-color: black;
+  border-radius: 20px;
+  width: 50%;
+}
+.calculatorBtn:hover {
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+}
+.result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+  gap: 2rem;
+}
+
+/* mobile */
+@media screen and (max-width: 599) {
+  .headline {
+    margin: 3rem auto;
+    font-size: 3rem;
+  }
+    .containerQuestions{
+    height: 50%;
+  }
+  .questions{
+    padding: 0 auto;
+    justify-content: center;
+    
+  }
+ 
+}
+
+/* nettbrett */
+@media (min-width: 600px) and (max-width: 1024px) {
+  .headline {
+    margin: 2rem auto;
+    font-size: 6rem;
+  }
+  .containerQuestions{
+    height: 50%;
+  }
+  .questions{
+    padding: 0 auto;
+    justify-content: center;
+    
+  }
+}
