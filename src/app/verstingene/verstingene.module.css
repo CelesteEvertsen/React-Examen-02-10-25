@@ -1,0 +1,24 @@
+.headline{
+    text-align: center;
+   font-size: 8rem;
+   margin-bottom: 1rem;
+}
+
+
+/* mobile */
+@media screen and (max-width: 599) {
+  .headline {
+   margin: 3rem auto;
+   font-size: 3rem;
+  }
+ 
+}
+
+/* nettbrett */
+@media (min-width: 600px) and (max-width: 1024px) {
+.headline{
+    margin: 2rem auto;
+     font-size: 6rem;
+}
+
+  }
