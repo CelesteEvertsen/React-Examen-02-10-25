@@ -1,13 +1,10 @@
-.main {
-  display: flex;
-  height: 100vh;
-  width: 100vw;
-}
 .containerQuestions {
+  border: 1px solid black;
   text-align: center;
-  margin: auto auto;
-  padding: 1rem 2rem;
-  height: 90vh;
+  margin: 2rem auto;
+  padding: 2rem 2rem;
+  max-width: fit-content;
+  max-height: fit-content;
   border-radius: 2rem;
   background-color: antiquewhite;
   box-shadow: rgba(100, 100, 111, 0.61) 0px 7px 29px 0px;
@@ -28,12 +25,10 @@
   font-size: 1rem;
   background-color: black;
   border-radius: 20px;
-  width: 50%;
+ 
 }
 .calculatorBtn:hover {
-  color: black;
-  background-color: white;
-  border: 1px solid black;
+  transform: scale(1.05);
 }
 .result {
   display: flex;
@@ -63,6 +58,9 @@
 
 /* nettbrett */
 @media (min-width: 600px) and (max-width: 1024px) {
+  .main{
+    flex-wrap: wrap;
+  }
   .headline {
     margin: 2rem auto;
     font-size: 6rem;

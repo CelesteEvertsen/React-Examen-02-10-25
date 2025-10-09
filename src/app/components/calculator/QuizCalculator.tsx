@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import Confetti from "react-confetti";
 import { useWindowSize } from "react-use";
 import { questions } from "@/app/data/ClimateCalculatorArray";
-import style from "./ClimateCalculatorSection.module.css";
+import style from "./QuizCalculator.module.css";
 import Image from "next/image";
 
-export default function ClimateCalculatorSection() {
+export default function QuizCalculator() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [finished, setFinished] = useState(false);
   const [score, setScore] = useState(0);
@@ -97,7 +97,7 @@ export default function ClimateCalculatorSection() {
   }
 
   return (
-    <main className={style.main}>
+    <>
       <div className={style.containerQuestions}>
         <h1 className={style.headline}>Tørr du å ta quizen?</h1>
         {!finished ? (
@@ -119,6 +119,7 @@ export default function ClimateCalculatorSection() {
                 {options.text}
               </button>
             ))}
+      
           </div>
         ) : (
           <div className={style.result}>
@@ -135,7 +136,8 @@ export default function ClimateCalculatorSection() {
           </div>
         )}
       </div>
-    </main>
+           
+    </>
   );
 }
 
