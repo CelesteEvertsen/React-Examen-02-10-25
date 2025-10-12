@@ -3,6 +3,7 @@ import { EmojiEnviromentChoices } from "../../data/ClimateCalculatorArray";
 import { useState } from "react";
 import style from "./EmojiCalculator.module.css";
 
+
 export default function EmojiCalculator() {
   const [value, setValue] = useState<number[]>([]);
   function handleClick(value: number) {

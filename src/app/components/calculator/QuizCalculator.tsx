@@ -37,6 +37,12 @@ export default function QuizCalculator() {
       setFinished(true);
     }
   };
+
+  const handleBack = (value: number) => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+    }
+  };
   function handelRestart() {
     setCurrentIndex((prev) => 0);
     setFinished(false);
@@ -111,7 +117,7 @@ export default function QuizCalculator() {
             <p>{questions[currentIndex].text}</p>
             {questions[currentIndex].options.map((options, index) => (
               <button
-                className={style.calculatorBtn}
+                className={style.quizBtn}
                 type="button"
                 key={index}
                 onClick={() => handleAnswer(options.value)}
@@ -119,7 +125,20 @@ export default function QuizCalculator() {
                 {options.text}
               </button>
             ))}
-      
+            <button
+              className={style.btn}
+              type="button"
+              onClick={() => handleBack(-1)}
+            >
+              Tilbake
+            </button>
+            <button
+              className={style.btn}
+              type="button"
+              onClick={() => handleAnswer(0)}
+            >
+              Frem
+            </button>
           </div>
         ) : (
           <div className={style.result}>
@@ -127,7 +146,7 @@ export default function QuizCalculator() {
             <h3>Ditt klimautslipp: {score}</h3>
             {handelScore()}
             <button
-              className={style.calculatorBtn}
+              className={style.quizBtn}
               type="button"
               onClick={() => handelRestart()}
             >
@@ -136,7 +155,6 @@ export default function QuizCalculator() {
           </div>
         )}
       </div>
-           
     </>
   );
 }
