@@ -33,3 +33,5 @@
 .table tbody tr:nth-child(odd){
     background-color: #f8dbdb;
 }
+
+/* mobile nettbrett, så ikke noe grunn til å ha de med, da den var veldig responsiv*/
