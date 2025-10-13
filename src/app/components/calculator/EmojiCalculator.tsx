@@ -1,10 +1,16 @@
 "use client"
-import { EmojiEnviromentChoices } from "../../data/ClimateCalculatorArray";
 import { useState } from "react";
 import style from "./EmojiCalculator.module.css";
 
+interface Props{ 
+  Emoji: {
+  id: number;
+  emoji: string;
+  description: string;
+  value: number;
+}[]}
 
-export default function EmojiCalculator() {
+export default function EmojiCalculator({Emoji}:Props) {
   const [value, setValue] = useState<number[]>([]);
   function handleClick(value: number) {
     setValue((prev) => [...prev, value]);
@@ -35,7 +41,7 @@ export default function EmojiCalculator() {
         value={valueDisplay}
       />
       <div className={style.buttonGrid}>
-        {EmojiEnviromentChoices.map(({ id, emoji, description, value }) => (
+        {Emoji.map(({ id, emoji, description, value }) => (
           <button
             type="button"
             key={id}
@@ -48,11 +54,11 @@ export default function EmojiCalculator() {
         ))}
       </div>
       <div className={style.deleteContainer}>
-        <button className={style.btn} onClick={() => handleRemove()}>
+        <button type="button" className={style.btn} onClick={() => handleRemove()}>
           {" "}
           Start på nytt
         </button>
-        <button className={style.btn} onClick={() => handleEsc()}>
+        <button type="button" className={style.btn} onClick={() => handleEsc()}>
           {" "}
           Esc
         </button>

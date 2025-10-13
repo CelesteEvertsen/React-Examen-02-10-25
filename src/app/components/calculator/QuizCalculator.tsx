@@ -1,11 +1,22 @@
 "use client";
 import React from "react";
 import { useState, useEffect } from "react";
-import { questions } from "@/app/data/ClimateCalculatorArray";
 import style from "./QuizCalculator.module.css";
 import Link from "next/link";
 
-export default function QuizCalculator() {
+interface Answers {
+  text: string;
+  value: number;
+}
+interface Props{
+  Questions: {
+  id: number;
+  text: string;
+  options: Answers[];
+  average:number;
+}[]}
+
+export default function QuizCalculator({Questions}:Props) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [finished, setFinished] = useState(false);
   const [score, setScore] = useState(0);
@@ -18,7 +29,7 @@ export default function QuizCalculator() {
 
   function handleAnswer(value: number) {
     setScore(score + value);
-    if (currentIndex + 1 < questions.length) {
+    if (currentIndex + 1 < Questions.length) {
       setCurrentIndex(currentIndex + 1);
     } else {
       setFinished(true);
@@ -41,10 +52,10 @@ export default function QuizCalculator() {
               Ditt klima utslipp:{score}kg
             </h2>
             <h2>
-              {currentIndex + 1}/{questions.length}
+              {currentIndex + 1}/{Questions.length}
             </h2>
-            <p>{questions[currentIndex].text}</p>
-            {questions[currentIndex].options.map((options, index) => (
+            <p>{Questions[currentIndex].text}</p>
+            {Questions[currentIndex].options.map((options, index) => (
               <button
                 className={style.quizBtn}
                 type="button"

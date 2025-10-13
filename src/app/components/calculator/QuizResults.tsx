@@ -1,20 +1,29 @@
 "use client";
 import { useState, useEffect } from "react";
-import { questions } from "@/app/data/ClimateCalculatorArray";
 import Confetti from "react-confetti";
 import Image from "next/image";
 import style from "./QuizCalculator.module.css";
 import { useWindowSize } from "react-use";
 import Link from "next/link";
 
+interface Answers {
+  text: string;
+  value: number;
+}
+interface Props{
+  Questions: {
+  id: number;
+  text: string;
+  options: Answers[];
+  average:number;
+}[]}
 
-
-export default function QuizResults() {
+export default function QuizResults({Questions}:Props) {
   const [score, setScore] = useState<number>(0);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [finished, setFinished] = useState<boolean>(false);
   const { width, height } = useWindowSize();
-  const totalAverage = questions.reduce((total, a)=> total + a.average, 0)
+  const totalAverage = Questions.reduce((total, a)=> total + a.average, 0)
 
   useEffect(() => {
     const SavedScore = localStorage.getItem("score");
