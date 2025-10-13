@@ -9,7 +9,7 @@ export default function Home() {
         <section className={styles.section}>
           <h1>Protect Our Planet</h1>
           <p>
-            Climate change isn’t tomorrow’s problem—it’s ours today. Together,
+            Climate change isnt tomorrows problem its ours today. Together,
             we can build a sustainable future.
           </p>
         </section>
