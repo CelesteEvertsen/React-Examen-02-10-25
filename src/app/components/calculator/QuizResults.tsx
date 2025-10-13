@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { questions } from "@/app/data/ClimateCalculatorArray";
 import Confetti from "react-confetti";
 import Image from "next/image";
 import style from "./QuizCalculator.module.css";
@@ -13,6 +14,7 @@ export default function QuizResults() {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [finished, setFinished] = useState<boolean>(false);
   const { width, height } = useWindowSize();
+  const totalAverage = questions.reduce((total, a)=> total + a.average, 0)
 
   useEffect(() => {
     const SavedScore = localStorage.getItem("score");
@@ -86,7 +88,7 @@ export default function QuizResults() {
 
   return (
     <section className={style.containerQuestions}>
-      <h2>Ditt klima utslipp:{score}kg CO2 vs gjennomsnittet: 100kg CO2</h2>
+      <h2>Ditt klima utslipp:{score}kg CO2 vs gjennomsnittet:{totalAverage} CO2</h2>
       <div className={style.result}>
         <h2>Resultater</h2>
         <h3>Ditt klimautslipp: {score}</h3>

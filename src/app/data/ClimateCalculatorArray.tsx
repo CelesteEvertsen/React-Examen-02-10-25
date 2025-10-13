@@ -6,7 +6,7 @@ interface Questions {
   id: number;
   text: string;
   options: Answers[];
-  average?:number;
+  average:number;
 }
 interface Emoji {
   id: number;

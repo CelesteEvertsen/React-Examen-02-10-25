@@ -38,7 +38,7 @@ export default function QuizCalculator() {
         {!finished ? (
           <div className={style.questions}>
             <h2>
-              Ditt klima utslipp:{score}kg CO2 vs gjennomsnittet: 100kg CO2
+              Ditt klima utslipp:{score}kg
             </h2>
             <h2>
               {currentIndex + 1}/{questions.length}
