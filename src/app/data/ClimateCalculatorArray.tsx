@@ -6,6 +6,7 @@ interface Questions {
   id: number;
   text: string;
   options: Answers[];
+  average?:number;
 }
 interface Emoji {
   id: number;
@@ -15,17 +16,22 @@ interface Emoji {
 }
 
 export const EmojiEnviromentChoices: Emoji[] = [
-  { id: 1, emoji: "🚗", description: "Bil",value: 10 },
+  { id: 1, emoji: "🚗", description: "Bil", value: 10 },
   { id: 2, emoji: "🚋", description: "Trikk", value: 5 },
   { id: 3, emoji: "🚲", description: "Sykkel", value: 2 },
-  { id: 4, emoji: "🚶‍♀️", description: "Gå", value:1 },
+  { id: 4, emoji: "🚶‍♀️", description: "Gå", value: 1 },
   { id: 5, emoji: "🗑️", description: "Bruk og kast", value: 8 },
   { id: 6, emoji: "♻️", description: "Resirkulering", value: 2 },
   { id: 7, emoji: "🌱", description: "Plantebasert Kosthold", value: 1 },
   { id: 8, emoji: "🌍", description: "klimabevist", value: 0 },
   { id: 9, emoji: "💡", description: "Lavt Energibruk)", value: 4 },
   { id: 10, emoji: "🍽️", description: "Spiser hva som helst", value: 6 },
-  { id: 11, emoji: "🚨", description: "Global oppvarming finnes ikke", value: 100 },
+  {
+    id: 11,
+    emoji: "🚨",
+    description: "Global oppvarming finnes ikke",
+    value: 100,
+  },
 ];
 
 export const questions: Questions[] = [
@@ -37,6 +43,7 @@ export const questions: Questions[] = [
       { text: "1-2 ganger i året", value: 5 },
       { text: "Flere ganger i året", value: 10 },
     ],
+    average: 5,
   },
   {
     id: 2,
@@ -46,6 +53,7 @@ export const questions: Questions[] = [
       { text: "Kollektivt", value: 3 },
       { text: "Bil", value: 7 },
     ],
+     average: 3,
   },
   {
     id: 3,
@@ -55,6 +63,7 @@ export const questions: Questions[] = [
       { text: "Noen ganger i uken", value: 4 },
       { text: "Daglig", value: 8 },
     ],
+     average: 4,
   },
   {
     id: 4,
@@ -64,6 +73,7 @@ export const questions: Questions[] = [
       { text: "Blandet energikilde", value: 4 },
       { text: "Ikke-fornybar (kull, olje, gass)", value: 8 },
     ],
+     average:  0,
   },
   {
     id: 5,
@@ -73,6 +83,7 @@ export const questions: Questions[] = [
       { text: "Elektriske ovner", value: 4 },
       { text: "Olje / gass / fossilt brensel", value: 8 },
     ],
+    average: 4,
   },
   {
     id: 6,
@@ -82,6 +93,7 @@ export const questions: Questions[] = [
       { text: "En liten pose", value: 3 },
       { text: "Flere poser", value: 6 },
     ],
+    average: 6,
   },
   {
     id: 7,
@@ -91,6 +103,7 @@ export const questions: Questions[] = [
       { text: "Noen ganger i året", value: 3 },
       { text: "Ofte, fast fashion", value: 7 },
     ],
+    average: 7,
   },
   {
     id: 8,
@@ -100,6 +113,7 @@ export const questions: Questions[] = [
       { text: "Blandet, noe importert", value: 4 },
       { text: "Mest importert og prosessert", value: 7 },
     ],
+    average: 4,
   },
   {
     id: 9,
@@ -109,6 +123,7 @@ export const questions: Questions[] = [
       { text: "Av og til", value: 3 },
       { text: "Sjeldent/aldri", value: 6 },
     ],
+    average: 3
   },
   {
     id: 10,
@@ -118,5 +133,6 @@ export const questions: Questions[] = [
       { text: "Hvert 2.-3. år", value: 4 },
       { text: "Årlig eller oftere", value: 7 },
     ],
+    average: 1
   },
 ];
