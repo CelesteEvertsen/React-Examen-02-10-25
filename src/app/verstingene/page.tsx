@@ -1,5 +1,5 @@
 import style from "./verstingene.module.css"
-import EmissionMain from "../components/emission/EmissionMain"
+import EmissionMain from "../components/charts/EmissionMain"
 
 export default function Verstingene(){
 return(
