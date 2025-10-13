@@ -1,4 +1,5 @@
 import ClimateSection from "./components/homePage/ClimateSection";
+import ClimateSectionArray from "./data/ClimateSectionArray";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -15,7 +16,8 @@ export default function Home() {
         </section>
       </div>
       <div className={styles.ClimaSection}>
-       <ClimateSection/>
+       <ClimateSection
+       ClimateSection={ClimateSectionArray}/>
       
         </div>
     </main>
