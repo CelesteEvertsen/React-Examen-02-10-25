@@ -1,10 +1,19 @@
 import style from "./ClimateSection.module.css";
-import ClimateSectionArray from "../../data/ClimateSectionArray";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function ClimateSection() {
-  const climateArray = ClimateSectionArray.map(({title, image, text, theme, id}) => {
+interface Props {
+  ClimateSection:{
+  title: string;
+  image: string;
+  text: string;
+  theme: string;
+  id: number;
+  }[]
+}
+
+export default function ClimateSection({ClimateSection}:Props) {
+  const climateArray = ClimateSection.map(({title, image, text, theme, id}) => {
     
     return (
       <section className={style.content} key={id}>
