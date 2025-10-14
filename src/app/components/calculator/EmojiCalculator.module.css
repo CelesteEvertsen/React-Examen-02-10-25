@@ -81,16 +81,8 @@
 
 /* mobile */
 @media screen and (max-width: 599) {
-
- .navigationBtn > h1{
-   padding: 0 2.5rem;
- }
+.headline{
+  font-size: 3rem;
+}
 }
 
-/* nettbrett */
-@media (min-width: 600px) and (max-width: 1024px) {
- .navigationBtn > h1{
-   padding: 0 2.5rem;
- }
-
-  }

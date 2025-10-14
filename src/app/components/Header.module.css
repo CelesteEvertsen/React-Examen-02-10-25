@@ -6,19 +6,6 @@
   display: none;
 }
 
-
-
-
-/* Nettbrett og mobil */
-/* @media (min-width: 300px) and (max-width: 600px) {
-  .DesktopMenu {
-    display: none;
-  }
-
-  .MobileAndTablerMenu {
-    display: block;
-  }
-} */
 /* mobile */
 @media screen and (max-width: 599) {
   .DesktopMenu {

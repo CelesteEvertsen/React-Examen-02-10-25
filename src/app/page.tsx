@@ -3,6 +3,13 @@ import ClimateSectionArray from "./data/ClimateSectionArray";
 import styles from "./page.module.css";
 
 export default function Home() {
+  if(!ClimateSectionArray){
+    return(
+       <p>
+        Data laster/mangler, du kan fortsette med bruk og kast i mellomtiden
+      </p>
+    )
+  }
   return (
        <>
     <main className={styles.main}>

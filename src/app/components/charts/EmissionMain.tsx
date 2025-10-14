@@ -7,7 +7,14 @@ import ChartEmission from "./ChartEmission";
 
 export default function EmissionMain() {
   const [showinfo, setShowinfo] = useState<"table" | "chart">("table");
-  console.log(showinfo);
+
+  if (!HighEmission || !LowEmission) {
+    return (
+      <p>
+        Data laster/mangler, du kan fortsette med bruk og kast i mellomtiden
+      </p>
+    );
+  }
   return (
     <>
       <section className={style.navigationBtn}>
@@ -29,8 +36,8 @@ export default function EmissionMain() {
           />
         ) : (
           <ChartEmission
-          HighEmission={HighEmission}
-          LowEmission={LowEmission}
+            HighEmission={HighEmission}
+            LowEmission={LowEmission}
           />
         )}
       </section>

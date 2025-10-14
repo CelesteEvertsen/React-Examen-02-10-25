@@ -32,9 +32,11 @@ export default function QuizResults({Questions}:Props) {
 
     if (SavedScore) setScore(Number(SavedScore));
     if (SavedIndex) setCurrentIndex(Number(SavedIndex));
-    if (SavedFinished) setFinished(Boolean(SavedFinished));
-  });
-
+    if (SavedFinished) setFinished(Boolean(SavedFinished)); 
+    /* kilde: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
+    https://www.freecodecamp.org/news/javascript-string-to-boolean/*/
+ });
+ 
   function handelRestart() {
     setCurrentIndex(0);
     setFinished(false);
@@ -82,7 +84,7 @@ export default function QuizResults({Questions}:Props) {
     } else {
       return (
         <div>
-          <Confetti colors={["black", "black"]} width={width} height={height} />
+          <Confetti colors={["black", "black"]} width={width} height={height} /> {/* tilleggsfunksjonalitet */}
           <Image
             src="/BruceWillisWtfGIF.gif"
             width={200}

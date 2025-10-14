@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react";
 import style from "./EmojiCalculator.module.css";
-
+/* emojikalkulator er tillegsfunkjsonalitet */
 interface Props{ 
   Emoji: {
   id: number;
