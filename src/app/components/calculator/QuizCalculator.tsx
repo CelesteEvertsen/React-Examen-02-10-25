@@ -20,6 +20,7 @@ export default function QuizCalculator({Questions}:Props) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [finished, setFinished] = useState(false);
   const [score, setScore] = useState(0);
+  const [switchedAnswer, setSwitchedAnswer] = useState<{[key:number]:number}>({})
 
   useEffect(() => {
     localStorage.setItem("score", score.toString());
@@ -28,12 +29,23 @@ export default function QuizCalculator({Questions}:Props) {
   }, [score, currentIndex, finished]);
 
   function handleAnswer(value: number) {
-    setScore(score + value);
-    if (currentIndex + 1 < Questions.length) {
-      setCurrentIndex(currentIndex + 1);
-    } else {
-      setFinished(true);
+    const currentQuestion = Questions[currentIndex];
+    const previusValue = switchedAnswer[currentQuestion.id] || 0;
+
+    const updatedAnswers = {
+      ...switchedAnswer,[currentQuestion.id]:value,
     }
+    const newScore = score - previusValue + value;
+
+    setSwitchedAnswer(updatedAnswers);
+    setScore(newScore);
+
+
+   if( currentIndex +1 < Questions.length){
+    setCurrentIndex(currentIndex + 1);
+   }else{
+    setFinished(true);
+   }
   }
 
   function handleBack(value: number) {
