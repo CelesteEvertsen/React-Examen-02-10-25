@@ -20,7 +20,7 @@ export default function QuizCalculator({Questions}:Props) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [finished, setFinished] = useState(false);
   const [score, setScore] = useState(0);
-  const [switchedAnswer, setSwitchedAnswer] = useState<{[key:number]:number}>({})
+  const [switchedAnswer, setSwitchedAnswer] = useState<{[id:number]:number}>({})
 
   useEffect(() => {
     localStorage.setItem("score", score.toString());
@@ -43,8 +43,6 @@ export default function QuizCalculator({Questions}:Props) {
 
    if( currentIndex +1 < Questions.length){
     setCurrentIndex(currentIndex + 1);
-   }else{
-    setFinished(true);
    }
   }
 
@@ -54,6 +52,9 @@ export default function QuizCalculator({Questions}:Props) {
     }
   }
 
+  function handelfinishedQuiz(){
+    setFinished(true)
+  }
   return (
     <>
       <div className={style.containerQuestions}>
@@ -84,6 +85,7 @@ export default function QuizCalculator({Questions}:Props) {
             >
               Tilbake
             </button>
+            {currentIndex + 1 < Questions.length ?(
             <button
               className={style.btn}
               type="button"
@@ -91,6 +93,8 @@ export default function QuizCalculator({Questions}:Props) {
             >
               Frem
             </button>
+            ):
+            <button  className={style.btnDone} type="button" onClick={()=>handelfinishedQuiz()}>Ferdig?</button>}
           </div>
         ) : (
           <div>

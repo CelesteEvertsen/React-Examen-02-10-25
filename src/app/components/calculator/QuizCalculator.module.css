@@ -58,6 +58,21 @@
 .btn:hover {
   transform: scale(1.05);
 }
+.btnDone{
+  background-color: rgb(63, 187, 5);
+  color: white;
+  border-radius: 10px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.btnDone:hover {
+  transform: scale(1.05);
+}
 
 /* mobile */
 @media screen and (max-width: 599) {
