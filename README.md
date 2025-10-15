@@ -21,6 +21,21 @@ string til number:
 https://www.freecodecamp.org/news/how-to-convert-a-string-to-a-number-in-javascript/
 string til boolen: https://www.freecodecamp.org/news/javascript-string-to-boolean/
 
+
+
+
+# TypeScript:
+Implemetrer typscript, her bruker jeg det vi har lært på GS og hovret over det jeg fikk rød strek under, der viste VS-code/Typscript hva de forventer og det hjalp meg å løse enkelte bugs.
+
+interface Props{ 
+  Emoji: {
+  id: number;
+  emoji: string;
+  description: string;
+  value: number;
+}[]}
+Denne type setup(kun eksempel) bruker jeg i filer som bruker props, dette er en represantasjon av at det forventes å få inn en liste med Objecter. Data som kommer utenfra filen. I dette prosjektet blir det hentet i MAPPEN data
+
 ## Layout.tsx
 Har ikke endret på dette, lot den være som den var når jeg installerte next med react, slik at jeg kunne beholde font og andre deler av CSS.
 
@@ -30,6 +45,8 @@ Jeg valgte å ha noen av mappa navne på norsk da til påvirker URL navnt, samt 
 
 ### Componenter: 
 Her er det delt inn i undermapper for en fin fordelig i de ulike delene av del oppgaven.
+
+
 
 # Header og footer 
 to separate komponeter som kalles på inne i layout.tsx(globalt) slik at de alltid er synlige uansett om man lager ny side eller ikke.
@@ -81,7 +98,59 @@ trengte ikke mye CSS da  <ResponsiveContainer/> gjør det responsivt.
 
 # EmissionMain
 Bruker state for å gi funksjonalitet til  knapper, slik at det er mulig for brukeren å navigerer mellom table og chart. 
-useState<"table" | "chart">("table") denne snutte sørger for at siden starter i tables.
+useState <"table" | "chart">("table") denne snutte sørger for at siden starter i tables.
+
+Hva gjør komponnetet?
+Viser tabel og graf for høyCo2 utslipp
+
+## calculator
+finner du filene CalculatorMain.tsx, QuizResults.tsx, QuizCalculator.tsx og EmojiCalculator.tsx 
+# CalculatorMain
+I CalculatorMain.tsx er hvor QuizCalculator og EmojiCalculator blir displayet, de kalles også på inne her ved hjelp av knapper som bruker state for å toggle mellom emjiCalculator og quizCalculator. Samme funksjonalitet som i charts.
+Her blir kalt med props.
+
+# EmojiCalculator (TILLEGS FUNKJSONALITET)
+Dette er en interaktiv kalkulator med emojis, der hver emoji har en verdi. Tenkte det var en morsom  tilleggsfunksjonalitet. Emoji representerer klimavalg brukeren tar, for hvert valg plusser den sammen brukeren valg.
+I state const [value, setValue] = useState<number[]>([]); lagres tallene som brukeren trykker på. handleClik sørger for å legge til de nye tallet i value ved click.
+const valueDisplay = value.join(" + ") er kun for å få en visuel representasjon av at det blir plusset sammen.
+Selve utregningen blir gjort med .reduce() --> const total = value.reduce((total, value) => total + value, 0)
+handleRemove gjør det mulig å eliminerer ALT og handleEsc gir muigheten til å kun fjerne det siste elementet fra arrayt. dette ved bruke av .slice(0,-1)
+
+hva gjør komponente?
+skal illustrer en kalkulator, der brukern kan regne seg frem til en totalt verdi.
+
+# QuizCalculator
+Ønsker å starte med utfordringe her, da det var denne delen av oppgaven som var mest krevende for meg. 
+Jeg lagrer brukeren valg i localstorage, grunnen til det er da jeg ikke følte meg helt trykk på zustand enda. Første bug jeg møtte på var at jeg ikke hadde localStorage i en useEffect.
+Dette førte til en evig loop og siden krasjet, fra mine Javascript erfaring så har ikke det skjedd før. Men  her i react hvergang state blir oppdater, så kjører hele komponente på nytt.
+Vi lærte at useEffect kun trigges når det skjer nye endringer, så det som er trygt inne i Effect ikke havnrer i en loop. 
+Måten jeg debugget det på var å fjerne lagring i localStorage, for det var etter jeg la det til at siden stoppa. 
+Prøvde meg frem med useEffect også fjernet det buggen. 
+
+Utfordring to
+Når brukeren endret svar, la den til poeng på det som allerene var valgt. Valgte brukeren et svar med verdig 5 og ønsket å bytte svar til en med verdi 10, ble det lagt til 5+10.
+Dette for meg var en teit bug som ga  dårlig bruker opplevelse. 
+satt litt fast med denne, da jeg ikke helt kom frem til om jeg måtte sammenlige value med value. eller id med id, men svar alternativene har ikke id, så jeg ble velig forvirret
+Om jeg klarer å finne nå værende spm sin ID 
+
+Hva gjør komponetet?
+Formålet med kmponentet er å gi brukeren mulighet til å svare på klimarelaterte spørsmål, der hvert svarsalternativ har en verdi, denne verdigen legges sammen og vil gi brukeren til totalt verdi på slutten av quizen. Dette vil sammenlignes med en gjennomsnitverdi.
+Det skal være mulgi forbrukren å kunne hoppeover, byttesvar og/eller går tilbake til tidligere spm.
+Resultatne som samles i denne quizen vises så i QuizResults.tsx
+Informajsonen lagres i localstorage.
+
+
+
+# QuizResults
+Her henter jeg det som er lagret i localstorage og konverterer det tilbake til number og boolean, sli at typescript er fornøyd.
+kilde: /* kilde: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
+    https://www.freecodecamp.org/news/javascript-string-to-boolean/*/
+    her vises totalt poeng fra QuizCalculator komponentet, og sammenligner det med avrage fra samme array.
+
+    handleRstart, nullstiller Sate og fjerne fra localStorage
+
+
+
 
 
 

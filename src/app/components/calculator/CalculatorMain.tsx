@@ -1,5 +1,5 @@
 "use client";
-import ClimateCalculatorSection from "@/app/components/calculator/QuizCalculator";
+import QuizCalculator from "@/app/components/calculator/QuizCalculator";
  import { EmojiEnviromentChoices } from "../../data/EmojiCalculatorArray";
 import { questions } from "@/app/data/QuizCalculatorArray"; 
 import { useState } from "react";
@@ -38,7 +38,7 @@ export default function CalculatorMain() {
       </div>
       <section>
         {displayCalculator === "quizCalculator" ? (
-          <ClimateCalculatorSection Questions={questions} />
+          <QuizCalculator Questions={questions} />
         ) : (
           <EmojiCalculator Emoji={EmojiEnviromentChoices} />
         )}

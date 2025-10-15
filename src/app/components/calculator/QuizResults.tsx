@@ -10,20 +10,21 @@ interface Answers {
   text: string;
   value: number;
 }
-interface Props{
+interface Props {
   Questions: {
-  id: number;
-  text: string;
-  options: Answers[];
-  average:number;
-}[]}
+    id: number;
+    text: string;
+    options: Answers[];
+    average: number;
+  }[];
+}
 
-export default function QuizResults({Questions}:Props) {
+export default function QuizResults({ Questions }: Props) {
   const [score, setScore] = useState<number>(0);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [finished, setFinished] = useState<boolean>(false);
   const { width, height } = useWindowSize();
-  const totalAverage = Questions.reduce((total, a)=> total + a.average, 0)
+  const totalAverage = Questions.reduce((total, a) => total + a.average, 0);
 
   useEffect(() => {
     const SavedScore = localStorage.getItem("score");
@@ -32,16 +33,21 @@ export default function QuizResults({Questions}:Props) {
 
     if (SavedScore) setScore(Number(SavedScore));
     if (SavedIndex) setCurrentIndex(Number(SavedIndex));
-    if (SavedFinished) setFinished(Boolean(SavedFinished)); 
+    if (SavedFinished) setFinished(Boolean(SavedFinished));
     /* kilde: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
     https://www.freecodecamp.org/news/javascript-string-to-boolean/*/
- });
- 
+  });
+
   function handelRestart() {
     setCurrentIndex(0);
     setFinished(false);
     setScore(0);
-  }
+
+    localStorage.removeItem("score");
+    localStorage.removeItem("index");
+    localStorage.removeItem("finished");
+    //Prøvde å legge inn i useEffect, men fikk feil melding.
+  } //funksjone setter state tilbake til start verdi
 
   function handelScore() {
     if (score <= 10) {
@@ -84,7 +90,8 @@ export default function QuizResults({Questions}:Props) {
     } else {
       return (
         <div>
-          <Confetti colors={["black", "black"]} width={width} height={height} /> {/* tilleggsfunksjonalitet */}
+          <Confetti colors={["black", "black"]} width={width} height={height} />{" "}
+          {/* tilleggsfunksjonalitet */}
           <Image
             src="/BruceWillisWtfGIF.gif"
             width={200}
@@ -99,7 +106,9 @@ export default function QuizResults({Questions}:Props) {
 
   return (
     <section className={style.containerQuestions}>
-      <h2>Ditt klima utslipp:{score}kg CO2 vs gjennomsnittet:{totalAverage} CO2</h2>
+      <h2>
+        Ditt klima utslipp:{score}kg CO2 vs gjennomsnittet:{totalAverage} CO2
+      </h2>
       <div className={style.result}>
         <h2>Resultater</h2>
         <h3>Ditt klimautslipp: {score}</h3>
