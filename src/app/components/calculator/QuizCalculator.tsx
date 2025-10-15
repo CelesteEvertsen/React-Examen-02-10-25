@@ -23,7 +23,7 @@ export default function QuizCalculator({ Questions }: Props) {
   const [finished, setFinished] =
     useState(
       false
-    ); /*har man gått gjennom hele arrayet, alstå om quizen er ferdig*/
+    ); /*her man gått gjennom hele arrayet, alstå om quizen er ferdig*/
   const [score, setScore] =
     useState(0); /*holde styr på verdiene til hver svar alternativ */
   const [switchedAnswer, setSwitchedAnswer] = useState<{
