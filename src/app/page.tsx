@@ -1,4 +1,4 @@
-import ClimateSection from "./components/homePage/ClimateSection";
+import ClimateSection from "./components/climatesection/ClimateSection";
 import ClimateSectionArray from "./data/ClimateSectionArray";
 import styles from "./page.module.css";
 
