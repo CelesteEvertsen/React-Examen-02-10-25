@@ -8,6 +8,7 @@ Navigasjon: delte det inn i Desktop og mobile/tablet. syntes det var lettere å 
 
 Emisson: https://www.worldometers.info/co2-emissions/co2-emissions-per-capita/
 
+Bilder:https://unsplash.com/
 
 Props: https://scrimba.com/ https://react.dev/learn/passing-props-to-a-component  og GA
 

@@ -73,6 +73,7 @@ export default function QuizCalculator({ Questions }: Props) {
   function handelfinishedQuiz() {
     setFinished(true);
   }
+  
   return (
     <>
       <div className={style.containerQuestions}>
