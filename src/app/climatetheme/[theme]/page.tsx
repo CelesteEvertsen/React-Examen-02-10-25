@@ -13,7 +13,7 @@ export default function ClimateTheme({ params }: Props) {
 
   if (!action) {
     return (
-      <p>Fant ikke noe klimatiltak, du kan fortsette med bruk og kast 🥳 </p>
+      <p>Fant ikke noe klimatiltak, du kan fortsette med bruk og kast</p>
     );
   }
   const { title, image, text, content } = action;
