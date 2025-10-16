@@ -1,35 +1,41 @@
 ### Destruction:
+
 Brukes flere steder i koden for å redusere mengden kode og gjøre den mer lesbar.
- kilder: https://medium.com/@lcriswell/destructuring-props-in-react-b1c295005ce0
+kilder: https://medium.com/@lcriswell/destructuring-props-in-react-b1c295005ce0
 https://www.w3schools.com/react/react_props_destructuring.asp
 
 ### Ikoner:
+
 Ikoner brukt i navigasjon og footer er fra: https://react-icons.github.io/react-icons/
 
-### Navigasjon: 
+### Navigasjon:
+
 delte det inn i Desktop og mobile/tablet. syntes det var lettere å holde styr på. De kalles på inne i header.tsx
 
 ### Emisjonsdata:
+
 Emisson informasjonen brukt i graf og tabel er fra : https://www.worldometers.info/co2-emissions/co2-emissions-per-capita/
 arrayet er i mappe for data under filnavn EmissionArray.tsx
 
 ### Bilder:
+
 https://unsplash.com/
 
-### Props: 
-Kilde  https://scrimba.com/ https://react.dev/learn/passing-props-to-a-component og GA
+### Props:
 
-### Confetti: 
+Kilde https://scrimba.com/ https://react.dev/learn/passing-props-to-a-component og GA
+
+### Confetti:
+
 npm install react-confetti.. lærte dette på scrimba.com tenke det var gøy å ha med
 
 ### Konvertering av verdier fra localStorage:
+
 Number() og Boolean(): hvordan gjøre strings fra localstorage om til Numbers igjen. da det blir lagret som string og det gikk ikke å bruke parsint:
 kilde: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
 
 https://www.freecodecamp.org/news/how-to-convert-a-string-to-a-number-in-javascript/
 string til boolen: https://www.freecodecamp.org/news/javascript-string-to-boolean/
-
-
 
 # TypeScript:
 
@@ -51,11 +57,11 @@ Har ikke endret på dette, lot den være som den var når jeg installerte next m
 
 ### Mappe struktur:
 
- Mappenavn spm påvirker URL er på norsk, og de som ikke påvirker URL  på engelsk. 
+Mappenavn spm påvirker URL er på norsk, og de som ikke påvirker URL på engelsk.
 
 ### app/rootmappe
-Page.tsk her kaller jeg på climasection, og dette er selve forsiden.
 
+Page.tsk her kaller jeg på climasection, og dette er selve forsiden.
 
 ### Componenter:
 
@@ -178,9 +184,9 @@ her vises totalt poeng fra QuizCalculator komponentet, og sammenligner det med a
 
     handleRstart, nullstiller Sate og fjerne fra localStorage
 
-
 ### Oppsumering:
-Prosjektet kombinerer flere konsepter fra React og Next.js 
-Blant annet props, state, dynamisk routing, localStorage og TypeScript. 
+
+Prosjektet kombinerer flere konsepter fra React og Next.js
+Blant annet props, state, dynamisk routing, localStorage og TypeScript.
 Jeg har forsøkt å strukturere komponentene ryddig, skrive gjenbrukbart, og har hente inspirasjon fra dokumentasjon og kurs.
-Alt i alt var det ett veldig lærerikt prosjekt. 
+Alt i alt var det ett veldig lærerikt prosjekt.
