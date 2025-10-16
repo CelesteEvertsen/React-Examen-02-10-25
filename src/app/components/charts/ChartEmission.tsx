@@ -5,7 +5,6 @@ import {
   Line,
   ResponsiveContainer,
   XAxis,
-  YAxis,
   AreaChart,
   Tooltip,
   Area,

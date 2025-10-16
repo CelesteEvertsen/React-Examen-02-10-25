@@ -21,6 +21,9 @@ arrayet er i mappe for data under filnavn EmissionArray.tsx
 
 https://unsplash.com/
 
+### Emoji
+https://dreamyguy.github.io/react-emojis/
+
 ### Props:
 
 Kilde https://scrimba.com/ https://react.dev/learn/passing-props-to-a-component og GA
@@ -37,7 +40,7 @@ kilde: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_
 https://www.freecodecamp.org/news/how-to-convert-a-string-to-a-number-in-javascript/
 string til boolen: https://www.freecodecamp.org/news/javascript-string-to-boolean/
 
-# TypeScript:
+### TypeScript:
 
 Jeg implementerte TypeScript basert på det vi lærte på GA. Når jeg fikk feilmeldinger i VS Code, viste TypeScript hvilke verdier som var forventet, noe som hjalp meg å løse flere bugs. Dette løste blant annet problemet med å hente data fra localStorage, der TypeScript forventet en number men fikk en string.
 
@@ -50,6 +53,7 @@ value: number;
 }[]}
 
 Denne type setup(kun eksempel) bruker jeg i filer som bruker props, dette er en represantasjon av at det forventes å få inn en liste med Objecter. Data som kommer utenfra filen. I dette prosjektet blir det hentet i MAPPEN data
+### Prettier: la til dette {" "} hver gang det ble brukt
 
 ## Layout.tsx
 
@@ -190,3 +194,5 @@ Prosjektet kombinerer flere konsepter fra React og Next.js
 Blant annet props, state, dynamisk routing, localStorage og TypeScript.
 Jeg har forsøkt å strukturere komponentene ryddig, skrive gjenbrukbart, og har hente inspirasjon fra dokumentasjon og kurs.
 Alt i alt var det ett veldig lærerikt prosjekt.
+
+BUG jeg la merke til Helt på slutten, før levering med ikke fikk til til å fikse. følger du  quizen som det er tenkt frem til du kan se resultetet så vil confetti vises i hele skjermen.. refresher du i resultat delen, vil confetti få en feil melding å kun vises i en liten del av skjermen.

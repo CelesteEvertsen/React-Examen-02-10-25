@@ -123,7 +123,7 @@ export default function QuizCalculator({ Questions }: Props) {
         ) : (
           <div>
             <h1 className={style.headline}>Gå til resultater</h1>
-            <Link href="/quizresults">
+            <Link href="/quizresultat">
               <button type="button" className={style.btn}>
                 Se resultatene
               </button>

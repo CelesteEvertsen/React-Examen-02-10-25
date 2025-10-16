@@ -1,12 +1,4 @@
-/* .navigationBtn{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border: 1px solid black;
-    
-} */
+
 .btnContainer{
      display:flex;
      width: 100vw;
