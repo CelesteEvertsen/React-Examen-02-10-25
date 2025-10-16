@@ -1,30 +1,39 @@
-destruction:
-https://medium.com/@lcriswell/destructuring-props-in-react-b1c295005ce0
+### Destruction:
+Brukes flere steder i koden for å redusere mengden kode og gjøre den mer lesbar.
+ kilder: https://medium.com/@lcriswell/destructuring-props-in-react-b1c295005ce0
 https://www.w3schools.com/react/react_props_destructuring.asp
 
-Iconer brukt er fra: https://react-icons.github.io/react-icons/
+### Ikoner:
+Ikoner brukt i navigasjon og footer er fra: https://react-icons.github.io/react-icons/
 
-Navigasjon: delte det inn i Desktop og mobile/tablet. syntes det var lettere å holde styr på.
+### Navigasjon: 
+delte det inn i Desktop og mobile/tablet. syntes det var lettere å holde styr på. De kalles på inne i header.tsx
 
-Emisson: https://www.worldometers.info/co2-emissions/co2-emissions-per-capita/
+### Emisjonsdata:
+Emisson informasjonen brukt i graf og tabel er fra : https://www.worldometers.info/co2-emissions/co2-emissions-per-capita/
+arrayet er i mappe for data under filnavn EmissionArray.tsx
 
-Bilder:https://unsplash.com/
+### Bilder:
+https://unsplash.com/
 
-Props: https://scrimba.com/ https://react.dev/learn/passing-props-to-a-component og GA
+### Props: 
+Kilde  https://scrimba.com/ https://react.dev/learn/passing-props-to-a-component og GA
 
-Confetti: npm install react-confetti.. lærte dette på scrimba.com tenke det var gøy å ha med
+### Confetti: 
+npm install react-confetti.. lærte dette på scrimba.com tenke det var gøy å ha med
 
-hvordan gjøre strings fra localstorage om til Numbers igjen. da det blir lagret som string og det gikk ikke å bruke parsint:
-
+### Konvertering av verdier fra localStorage:
+Number() og Boolean(): hvordan gjøre strings fra localstorage om til Numbers igjen. da det blir lagret som string og det gikk ikke å bruke parsint:
 kilde: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
 
-string til number:
 https://www.freecodecamp.org/news/how-to-convert-a-string-to-a-number-in-javascript/
 string til boolen: https://www.freecodecamp.org/news/javascript-string-to-boolean/
 
+
+
 # TypeScript:
 
-Implemetrer typscript, her bruker jeg det vi har lært på GS og hovret over det jeg fikk rød strek under, der viste VS-code/Typscript hva de forventer og det hjalp meg å løse enkelte bugs.
+Jeg implementerte TypeScript basert på det vi lærte på GA. Når jeg fikk feilmeldinger i VS Code, viste TypeScript hvilke verdier som var forventet, noe som hjalp meg å løse flere bugs. Dette løste blant annet problemet med å hente data fra localStorage, der TypeScript forventet en number men fikk en string.
 
 interface Props{
 Emoji: {
@@ -33,19 +42,18 @@ emoji: string;
 description: string;
 value: number;
 }[]}
+
 Denne type setup(kun eksempel) bruker jeg i filer som bruker props, dette er en represantasjon av at det forventes å få inn en liste med Objecter. Data som kommer utenfra filen. I dette prosjektet blir det hentet i MAPPEN data
 
 ## Layout.tsx
 
-Har ikke endret på dette, lot den være som den var når jeg installerte next med react, slik at jeg kunne beholde font og andre deler av CSS.
+Har ikke endret på dette, lot den være som den var når jeg installerte next med react, slik at jeg kunne beholde font og andre deler av CSS. kaller på Header og Footer her.
 
 ### Mappe struktur:
 
-- Grunnen til at mappe navnene ikke har alle Norske navn, er da vi har blitt lært at oppgave alltid skal være på engelsk. Med untakk av strings.
-  Jeg valgte å ha noen av mappa navne på norsk da til påvirker URL navnt, samt at det ga også mening å ha de pånorsk slik at man får ett hvis inntrykk på hvilken del av oppgaven er hvor.
+ Mappenavn spm påvirker URL er på norsk, og de som ikke påvirker URL  på engelsk. 
 
 ### app/rootmappe
-Her ligger layout, som jeg ikke har endret på, jeg har kun lagt til Footer og Header komponter.
 Page.tsk her kaller jeg på climasection, og dette er selve forsiden.
 
 
@@ -55,7 +63,7 @@ Her er det delt inn i undermapper for en fin fordelig i de ulike delene av del o
 
 # Header og footer
 
-to separate komponeter som kalles på inne i layout.tsx(globalt) slik at de alltid er synlige uansett om man lager ny side eller ikke.
+to separate komponeter som kalles globalt i layout.tsx(globalt) slik at de alltid er synlige uansett om man lager ny side eller ikke.
 De ligger løst i component-mappen da jeg ikke kom på en god mappe å kunne legge de inn i.
 
 ## navigasjon
@@ -169,3 +177,10 @@ https://www.freecodecamp.org/news/javascript-string-to-boolean/_/
 her vises totalt poeng fra QuizCalculator komponentet, og sammenligner det med avrage fra samme array.
 
     handleRstart, nullstiller Sate og fjerne fra localStorage
+
+
+### Oppsumering:
+Prosjektet kombinerer flere konsepter fra React og Next.js 
+Blant annet props, state, dynamisk routing, localStorage og TypeScript. 
+Jeg har forsøkt å strukturere komponentene ryddig, skrive gjenbrukbart, og har hente inspirasjon fra dokumentasjon og kurs.
+Alt i alt var det ett veldig lærerikt prosjekt. 
