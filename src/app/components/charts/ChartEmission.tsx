@@ -11,23 +11,20 @@ import {
 } from "recharts";
 import style from "./ChartEmission.module.css";
 
-interface Props {
-  HighEmission: {
+interface EmissionData {
     country: string;
     emission: number;
     population: number;
     oneYearChange: number;
   }[];
-}
-interface Props {
-  LowEmission: {
-    country: string;
-    emission: number;
-    population: number;
-    oneYearChange: number;
+
+interface ChartEmissionProps {
+  LowEmission:EmissionData []
+  HighEmission:EmissionData []
+
   }[];
-}
-export default function ChartEmission({ HighEmission, LowEmission }: Props) {
+
+export default function ChartEmission({ HighEmission, LowEmission }: ChartEmissionProps) {
   return (
     <main>
      <h2 className={style.headline}>CO2 <strong>Høyt</strong> utslipp per person/Land (tonn)</h2>
