@@ -4,16 +4,25 @@ import style from "./MobileAndTabletMenu.module.css";
 import { RxEyeClosed, RxEyeOpen } from "react-icons/rx";
 import Link from "next/link";
 
-export default function MobileAndTabletMenu() {
+/* Målet her er å lage en gjennbrukbar navigasjon */
+/* 1. Lage/definere interface for lenke-objektet */
+interface NavLink{
+  href: string;
+  label:string;
+}
+/* 2. definere props-type for komponenten */
+interface MobileAndTabletMenuProps{
+  links:NavLink[]; // Array av navlink-objekter
+}
+
+export default function MobileAndTabletMenu({links}: MobileAndTabletMenuProps) {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
 
   function toggleMenuOpen():void {
     setOpenMenu(!openMenu);
-    console.log(openMenu);
   }
   function toggleMenuClose():void {
     setOpenMenu(false);
-    console.log(openMenu);
   }
   return (
     <nav>
@@ -35,15 +44,11 @@ export default function MobileAndTabletMenu() {
         }`}
       >
         <ul onClick={() => toggleMenuClose()}>
-          <Link href="/">
-            <li>Hjem</li>
-          </Link>
-          <Link href="/verstingene">
-            <li>Verstingene</li>
-          </Link>
-          <Link href="/klimakalkulator">
-            <li>Klima kalkulator</li>{" "}
-          </Link>
+          {links.map((link)=>(
+            <Link href={link.href} key={link.href}>
+              <li>{link.label}</li>
+            </Link>
+          ))}
         </ul>
       </div>
     </nav>
