@@ -6,7 +6,6 @@ export default function Header() {
     { href: "/", label: "Hjem" },
   { href: "/verstingene", label: "Verstingene" },
   { href: "/klimakalkulator", label: "Klima kalkulator" },
-  { href: "/ny-side", label: "En Ny Side" },
   ]
   return (
     <header className={style.header}>
