@@ -24,7 +24,7 @@ export default function Home() {
       </div>
       <div className={styles.ClimaSection}>
        <ClimateSection
-       ClimateSection={ClimateSectionArray}/>
+       climateSection={ClimateSectionArray}/>
       
         </div>
     </main>

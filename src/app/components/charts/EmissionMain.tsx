@@ -36,8 +36,8 @@ export default function EmissionMain() {
           />
         ) : (
           <ChartEmission
-            HighEmission={HighEmission}
-            LowEmission={LowEmission}
+            highEmission={HighEmission}
+            lowEmission={LowEmission}
           />
         )}
       </section>

@@ -11,26 +11,27 @@ import {
 } from "recharts";
 import style from "./ChartEmission.module.css";
 
-interface EmissionData {
+interface emissionData {
     country: string;
     emission: number;
     population: number;
     oneYearChange: number;
   }[];
 
-interface ChartEmissionProps {
-  LowEmission:EmissionData []
-  HighEmission:EmissionData []
+interface chartEmissionProps {
+  lowEmission:emissionData []
+  highEmission:emissionData []
 
   }[];
-
-export default function ChartEmission({ HighEmission, LowEmission }: ChartEmissionProps) {
+/*EmissionData er riktig måte å lage typer på, slik det vises i TableEmission er feil, spesielt fordi du bruker samme navn Props Props. 
+Husk også at props skrives med småbokstaver */
+export default function ChartEmission({ highEmission, lowEmission }: chartEmissionProps) {
   return (
     <main>
      <h2 className={style.headline}>CO2 <strong>Høyt</strong> utslipp per person/Land (tonn)</h2>
       <div className={style.highE}>
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart width={500} height={200} data={HighEmission}>
+          <LineChart width={500} height={200} data={highEmission}>
             <CartesianGrid stroke="#eee" strokeDasharray={"5 5"} />
             <XAxis dataKey="country" />
             <Line
@@ -62,7 +63,7 @@ export default function ChartEmission({ HighEmission, LowEmission }: ChartEmissi
           <AreaChart
             width={500}
             height={400}
-            data={LowEmission}
+            data={lowEmission}
           >
             <CartesianGrid strokeDasharray="5 5" />
             <XAxis dataKey="country" />

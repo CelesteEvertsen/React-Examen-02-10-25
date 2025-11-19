@@ -17,6 +17,7 @@ interface Props {
     oneYearChange: number;
   }[];
 }
+/*Props skal skrives med små bokstaver, slik du har gjort i ChartEmission */
 export default function TableEmission({ HighEmission, LowEmission }: Props) {
   return (
     <main className={style.main}>
