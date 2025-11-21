@@ -1,17 +1,12 @@
-type HCo2 = {
-  country: string;
-  emission: number;
-  population: number;
-  oneYearChange: number;
-};
-type LCo2 = {
-  country: string;
-  emission: number;
-  population: number;
-  oneYearChange: number;
-};
 
-export const HighEmission: HCo2[] = [
+type Co2 ={
+   country: string;
+  emission: number;
+  population: number;
+  oneYearChange: number
+}
+
+export const HighEmission: Co2[] = [
   {
     country: "China",
     emission: 12667428430,
@@ -134,7 +129,7 @@ export const HighEmission: HCo2[] = [
   },
 ];
 
-export const LowEmission: LCo2[] = [
+export const LowEmission: Co2[] = [
   {
     country: "Burundi",
     emission: 924150,

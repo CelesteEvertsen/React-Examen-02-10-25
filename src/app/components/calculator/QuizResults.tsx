@@ -1,10 +1,11 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"; // Vi trenger useEffect kun for hydrering-fixen
 import Confetti from "react-confetti";
 import Image from "next/image";
 import style from "./QuizCalculator.module.css";
 import { useWindowSize } from "react-use";
 import Link from "next/link";
+import { useQuizStore } from "@/app/store/useQuizStore"; // Pass på at stien er rett
 
 interface Answers {
   text: string;
@@ -20,34 +21,20 @@ interface Props {
 }
 
 export default function QuizResults({ Questions }: Props) {
-  const [score, setScore] = useState<number>(0);
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const [finished, setFinished] = useState<boolean>(false);
+  // 1. Hent data og funksjoner fra Zustand
+  const { score, restartQuiz } = useQuizStore();
+  
+  // 2. Next.js Hydrering-fix (Sørger for at vi kun viser resultatet på klienten)
+  const [isMounted, setIsMounted] = useState(false);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   const { width, height } = useWindowSize();
   const totalAverage = Questions.reduce((total, a) => total + a.average, 0);
 
-  useEffect(() => {
-    const SavedScore = localStorage.getItem("score");
-    const SavedIndex = localStorage.getItem("index");
-    const SavedFinished = localStorage.getItem("finished");
-
-    if (SavedScore) setScore(Number(SavedScore));
-    if (SavedIndex) setCurrentIndex(Number(SavedIndex));
-    if (SavedFinished) setFinished(Boolean(SavedFinished));
-    /* kilde: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
-    https://www.freecodecamp.org/news/javascript-string-to-boolean/*/
-  });
-
-  function handelRestart() {
-    setCurrentIndex(0);
-    setFinished(false);
-    setScore(0);
-
-    localStorage.removeItem("score");
-    localStorage.removeItem("index");
-    localStorage.removeItem("finished");
-    //Prøvde å legge inn i useEffect, men fikk feil melding.
-  } //funksjone setter state tilbake til start verdi
+  // Du trenger ikke lenger handelRestart-funksjonen som sletter localStorage manuelt,
+  // vi bruker bare restartQuiz() fra storen direkte i knappen.
 
   function handelScore() {
     if (score <= 10) {
@@ -60,7 +47,7 @@ export default function QuizResults({ Questions }: Props) {
             height={150}
             alt="gif"
           />
-          <p>Du er ett eksempel for menneskeheten</p>
+          <p>Du er et eksempel for menneskeheten</p>
         </div>
       );
     } else if (score > 10 && score < 20) {
@@ -72,7 +59,7 @@ export default function QuizResults({ Questions }: Props) {
             height={150}
             alt="gif"
           />
-          <p>Det kunne hvert hverre</p>
+          <p>Det kunne vært verre</p>
         </div>
       );
     } else if (score > 20 && score < 50) {
@@ -90,8 +77,7 @@ export default function QuizResults({ Questions }: Props) {
     } else {
       return (
         <div>
-          <Confetti colors={["black", "black"]} width={width} height={height} />{" "}
-          {/* tilleggsfunksjonalitet */}
+          <Confetti colors={["black", "black"]} width={width} height={height} />
           <Image
             src="/BruceWillisWtfGIF.gif"
             width={200}
@@ -104,20 +90,25 @@ export default function QuizResults({ Questions }: Props) {
     }
   }
 
+  // Hvis komponenten ikke er "montert" i nettleseren ennå, returner null (forhindrer bugs)
+  if (!isMounted) return null;
+
   return (
     <section className={style.containerQuestions}>
       <h2>
-        Ditt klima utslipp:{score}kg CO2 vs gjennomsnittet:{totalAverage} CO2
+        Ditt klima utslipp: {score}kg CO2 vs gjennomsnittet: {totalAverage} CO2
       </h2>
       <div className={style.result}>
         <h2>Resultater</h2>
         <h3>Ditt klimautslipp: {score}</h3>
+        
         {handelScore()}
+        
         <Link href="/klimakalkulator">
           <button
             className={style.quizBtn}
             type="button"
-            onClick={() => handelRestart()}
+            onClick={restartQuiz} 
           >
             Start på nytt
           </button>
