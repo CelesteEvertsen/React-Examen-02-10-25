@@ -251,3 +251,23 @@ export const LowEmission: Co2[] = [
     oneYearChange: 3.4,
   },
 ];
+/*For at koden skal blir mer DRY, så kan du legge sammen listene, slik at det kun er en liste.
+Videre kan du bruke en filtrerings funksjon 
+: // Eksempel på bruk i applikasjonen din:
+
+// 1. Finn alle land med høyt utslipp (f.eks. over 100 millioner)
+const highEmissionCountries = GlobalEmissions.filter(
+  (country) => country.emission > 100_000_000
+);
+
+// 2. Finn alle land med lavt utslipp
+const lowEmissionCountries = GlobalEmissions.filter(
+  (country) => country.emission <= 100_000_000
+);
+
+// 3. Sortere ALLE land etter befolkning (umulig hvis listene er delt)
+const sortedByPop = GlobalEmissions.sort((a, b) => b.population - a.population);
+
+Det du bør sørge for er om dette kan brukes i en tabell eller graf.
+
+*/
